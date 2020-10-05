@@ -1,3 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rspec'
+gem 'dry-struct'
+
+group :development, :test do
+  gem 'byebug'
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'simplecov'
+end
