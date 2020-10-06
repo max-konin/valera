@@ -1,11 +1,11 @@
-class Action
-  class Cond
-    attr_accessor :field, :operator, :value
-    def initialize(field:, operator:, value:)
-      self.field = field
-      self.operator = operator
-      self.value = value
-    end
+require_relative '../types'
+require 'dry-struct'
+
+class Action < Dry::Struct
+  class Cond < Dry::Struct
+    attribute :field, Types::Coercible::String
+    attribute :value, Types::Coercible::Integer
+    attribute :operator, Types::Coercible::String.enum('>', '<', '>=', '<=', '==')
 
     def valid?(valera)
       actiual_value = valera.send field
