@@ -4,6 +4,8 @@ require_relative 'action/cond'
 require_relative 'action/effect'
 
 class Action < Dry::Struct
+  transform_keys(&:to_sym)
+
   attribute :before_text, Types::Coercible::String.default('')
   attribute :after_text, Types::Coercible::String.default('')
   attribute :conds, Types::Strict::Array.of(Action::Cond)

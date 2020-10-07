@@ -3,6 +3,8 @@ require 'dry-struct'
 
 class Action < Dry::Struct
   class Effect < Dry::Struct
+    transform_keys(&:to_sym)
+
     attribute :field, Types::Coercible::String
     attribute :value, Types::Coercible::Integer
     attribute :operator, Types::Coercible::String.enum('+', '-')
