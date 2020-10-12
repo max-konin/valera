@@ -4,7 +4,7 @@ require 'dry-struct'
 require_relative 'types'
 
 class AppContext < Dry::Struct
-  attribute :valera, Types.Instance(Valera)
+  attribute :valera, Types.Instance(Valera).optional
   attribute :actions_container, Types.Instance(ActionsContainer)
   attribute :prev_data, Types::Hash.default({}.freeze)
 
