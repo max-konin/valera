@@ -33,7 +33,7 @@ describe Valera do
       subject { Valera.new health: 10 }
       it { is_expected.not_to be_dead }
     end
-    context 'health < 0' do
+    context 'health <= 0' do
       subject { Valera.new health: -10 }
       it { is_expected.to be_dead }
     end
@@ -52,6 +52,7 @@ describe Valera do
     subject { valera.mana = value }
     context 'when new value > 100' do
       let(:value) { 150 }
+
       it { expect { subject }.to change { valera.mana }.to(100) }
       it { expect { subject }.to change { valera.health }.by(-50) }
     end

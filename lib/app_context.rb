@@ -1,11 +1,12 @@
-class AppContext
-  attr_reader :valera, :actions_container, :prev_data
+require_relative 'valera'
+require_relative 'actions_container'
+require 'dry-struct'
+require_relative 'types'
 
-  def initialize(valera:, actions_container:, prev_data:)
-    @valera = valera
-    @actions_container = actions_container
-    @prev_data = prev_data
-  end
+class AppContext < Dry::Struct
+  attribute :valera, Types.Instance(Valera)
+  attribute :actions_container, Types.Instance(ActionsContainer)
+  attribute :prev_data, Types::Hash.default({}.freeze)
 
   def available_actions
     actions_container.available_actions_for(valera)
