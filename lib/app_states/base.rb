@@ -1,3 +1,5 @@
+require_relative '../io_adapter'
+
 module AppStates
   class Base
     attr_reader :app_context
@@ -9,5 +11,9 @@ module AppStates
     def render; end
 
     def next; end
+
+    def io_adapter
+      IOAdapter.instance
+    end
   end
 end

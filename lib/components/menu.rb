@@ -1,12 +1,13 @@
 require 'dry-struct'
 require_relative '../types'
 require_relative '../io_adapter'
+require 'byebug'
 
 module Components
   class Menu < Dry::Struct
     class Item < Dry::Struct
       attribute :title, Types::Coercible::String
-      attribute :action, Types::Coercible::Symbol
+      attribute :action, Types::Coercible::Symbol | Types::Coercible::Integer
       attribute :command, Types::Coercible::String
 
       def text_to_render

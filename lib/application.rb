@@ -3,7 +3,6 @@ require_relative 'app_states/welcome'
 require_relative 'app_context'
 require_relative 'config_loader'
 
-
 class Application
   def run
     context = AppContext.new valera: Valera.new,

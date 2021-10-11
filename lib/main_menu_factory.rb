@@ -2,9 +2,9 @@ require_relative './components/menu'
 
 class MainMenuFactory
   MENU_ITEMS = [
-    { title: 'Save', command: :save, action: :save },
-    { title: 'Load', command: :load, action: :load },
-    { title: 'Exit', command: :exit, action: :exit }
+    { title: 'Save', command: 'save', action: :save },
+    { title: 'Load', command: 'load', action: :load },
+    { title: 'Exit', command: 'exit', action: :exit }
   ].freeze
 
   def initialize(only:)
@@ -18,7 +18,7 @@ class MainMenuFactory
     )
   end
 
-  def self.build(only:)
+  def self.build(only: %i[save load exit])
     new(only: only).build
   end
 end

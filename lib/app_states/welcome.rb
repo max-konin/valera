@@ -40,7 +40,7 @@ module AppStates
 
     def handle_user_input
       input = io_adapter.read
-      res = main_menu.handle_input(input) || menu.handle_input(input) || :error
+      main_menu.handle_input(input) || menu.handle_input(input) || :error
     end
 
     def io_adapter
